@@ -1,0 +1,42 @@
+.body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#add-book{
+    height: 50%;
+}
+
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 1000px;
+    height: 500px;
+}
+
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 50%;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}
+
+.form-question{
+    margin: 10px;
+}
