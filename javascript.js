@@ -13,6 +13,16 @@ function addBook(book){
 
 let addButton = document.getElementById('add-book');
 
+let formContainer = document.getElementById('form-container');
+
+let submit = document.getElementById("submit");
+
 addButton.addEventListener("click", function(){
-    
+    formContainer.style.display = "flex";
 })
+
+window.addEventListener("click", function(event) {
+    if (event.target === formContainer) {
+        formContainer.style.display = "none";
+    }
+});
