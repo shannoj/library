@@ -40,3 +40,23 @@
 .form-question{
     margin: 10px;
 }
+
+.main{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%
+}
+
+.book{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-color: black;
+}
+
+.book-item{
+    margin: 10px;
+}
