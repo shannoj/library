@@ -11,6 +11,15 @@ function addBook(book){
     myLibrary.push(book);
 }
 
+function closeButton(){
+    var closeBook = document.getElementsByClassName("removeButton");
+    for (i = 0; i < closeBook.length; i++){
+        closeBook[i].addEventListener("click", function() {
+            this.parentElement.parentElement.style.display = 'none';
+          });
+    }
+};
+
 let addButton = document.getElementById('add-book');
 
 let formContainer = document.getElementById('form-container');
@@ -21,9 +30,11 @@ let form = document.getElementById("form");
 
 let main = document.getElementById("main");
 
+let bookContainer = document.getElementById("book-container");
+
 addButton.addEventListener("click", function(){
     formContainer.style.display = "flex";
-})
+});
 
 window.addEventListener("click", function(event) {
     if (event.target === formContainer) {
@@ -40,26 +51,34 @@ form.addEventListener("submit", function(e){
     var read = '';
 
     if (document.getElementById('yes').checked){
-        read = 'yes';
+        read = 'Yes';
     }
 
     else {
-        read = 'no';
+        read = 'No';
     }
 
     const book = new Book(title, author, pages, read);
     addBook(book);
 
-    main.innerHTML += `
-    <div class="book"> 
+    bookContainer.innerHTML += `
+    <div class="book" id="${title}"> 
+        <div class=button-container>
+        <button class="removeButton" id="remove-${title}">X</button>
+        </div>
         <div class="book-item">${title}</div>
         <div class="book-item">${author}</div>
         <div class="book-item">${pages} pages</div>
         <div class="book-item"> Have read? ${read}</div>
     </div>
-    ` ;
+    `;
 
-    form.reset();
+    closeButton();
+
     formContainer.style.display = "none";
+    form.reset();
 
 });
+
+
+
