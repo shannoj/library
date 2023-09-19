@@ -15,7 +15,9 @@
       <button id="add-book">Add Book</button>
     </div>
     <div class="main" id="main">
-      <div class="form-container" id="form-container">
+      <div id="book-container"></div>
+      <div class="form-container hidden" id="form-container">
+        <div id="modalOverlay"></div>
         <form class="form" id="form">
           <div class="form-question">
             <label for="title">Title:</label>
@@ -42,7 +44,6 @@
         </form>
       </div>
     </div>
-    <div id="book-container"></div>
     <script src="javascript.js"></script>
   </body>
 </html>
