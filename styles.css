@@ -16,6 +16,8 @@
     flex-direction: column;
     width: 1000px;
     height: 500px;
+    z-index: 101;
+    position: absolute;
 }
 
 .form{
@@ -26,6 +28,9 @@
     height: 50%;
     background-color: lightblue;
     border-radius: 10px;
+    z-index: 101;
+    animation: slideIn 0.5s ease-in-out forwards;
+    transform: translateY(-100%); /* Start offscreen above */
 }
 
 .header{
@@ -50,6 +55,7 @@
     width: 100%;
     background-color: gray;
     height: 1000px;
+    z-index: 0;
 }
 
 .book{
@@ -84,3 +90,89 @@
 .library-image{
     height: 100%;
 }
+
+  
+ #book-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 66%;
+  z-index: 1;
+  height: 70%;
+}
+
+/* Style the switch container */
+.toggle-switch {
+  display: inline-block;
+  margin-right: 10px; /* Add spacing between switches */
+}
+
+/* Style the switch label */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px; /* Adjust the width of the switch */
+  height: 34px; /* Adjust the height of the switch */
+}
+
+/* Style the switch input (checkbox) */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Style the switch slider (the part that moves) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px; /* Round slider shape */
+}
+
+/* Style the switch slider when it's checked */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px; /* Adjust the height of the slider */
+  width: 26px; /* Adjust the width of the slider */
+  left: 4px; /* Position when the switch is off */
+  bottom: 4px; /* Position when the switch is off */
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%; /* Round slider thumb shape */
+}
+
+
+.switch input:checked + .slider:before {
+  transform: translateX(26px); /* Move the thumb to the right */
+}
+
+#modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 100; /* Ensure it's on top of other content */
+  display: none;
+  animation: slideIn 0.5s ease-in-out forwards;
+  transform: translateY(-100%); /* Start offscreen above */
+}
+
+@keyframes slideIn {
+  0% {
+      transform: translateY(-100%); /* Offscreen above */
+  }
+  100% {
+      transform: translateY(0); /* Slide in from the top */
+  }
+}
+
